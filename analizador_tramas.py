@@ -152,11 +152,48 @@ def tramasYCheckSumCorrectos(listaTramas):
 
 listaTramas = separaTramas(textList) #Lista de tramas 
 tramasConEscape = cuentaTramasSecuenciaEscape(listaTramas) #Lista de tramas sin secuencia de escape
-listaTramasS = eliminaSecuenciaEscape(listaTramas) #Lista de tramas sin secuencia de escape
+listaTramasS = eliminaSecuenciaEscape(listaTramas) #Lista de tramas sin secuencia de escape4
 
-print("Cantidad de tramas: ", calculaTramas(textList)) 
-print("Cantidad de tramas correctas: ", calculaTramasCorrectas(listaTramas)) 
-print("Cantidad de tramas incorrectas: ", calculaTramasIncorrectas(listaTramas))
-print("Cantidad de tramas con longitud correcta y checksum correcto: ", tramasYCheckSumCorrectos(listaTramas))
-print("Cantidad de tramas con longitud correcta y checksum incorrecto: ", calculaTramasCorrectas(listaTramas) - tramasYCheckSumCorrectos(listaTramas))
-print("Canttidadd de tramas con secuencia de escape: ", tramasConEscape)
+def menu():
+    """Trabajo Práctico 1 - Redes de Computadoras"""
+    while True:
+        print("\nElija una de las siguientes opciones:")
+        print("1) Cantidad de tramas")
+        print("2) Cantidad de tramas correctas")
+        print("3) Cantidad de tramas incorrectas")
+        print("4) Cantidad de tramas con longitud correcta y checksum correcto")
+        print("5) Cantidad de tramas con longitud correcta y checksum incorrecto")
+        print("6) Cantidad de tramas con secuencia de escape")
+        print("7) Volver al menú principal")
+        print("8) Salir")
+        
+        opc = input("-->> ")
+        
+        if opc in {"1", "2", "3", "4", "5", "6"}:
+            main(opc)
+        elif opc == "7":
+            continue  # Reinicia el menú
+        elif opc == "8":
+            print("Saliendo...")
+            break
+        else:
+            print("Por favor, elija una opción válida.")
+        
+
+def main(opc):
+    if opc == "1": 
+        print("Cantidad de tramas: ", calculaTramas(textList)) 
+    elif opc == "2":
+        print("Cantidad de tramas correctas: ", calculaTramasCorrectas(listaTramas)) 
+    elif opc == "3": 
+        print("Cantidad de tramas incorrectas: ", calculaTramasIncorrectas(listaTramas))
+    elif opc == "4": 
+        print("Cantidad de tramas con longitud correcta y checksum correcto: ", tramasYCheckSumCorrectos(listaTramas))
+    elif opc == "5": 
+        print("Cantidad de tramas con longitud correcta y checksum incorrecto: ", calculaTramasCorrectas(listaTramas) - tramasYCheckSumCorrectos(listaTramas))
+    else: 
+      print("Cantidad de tramas con secuencia de escape: ", tramasConEscape)
+
+menu()
+
+
